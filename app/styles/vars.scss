@@ -10,12 +10,14 @@
   --light-gray-4: rgba(185, 185, 185, 0.4);
   --white-6: hsla(0, 0%, 100%, 0.6);
 
-  --main-size: 90%;
+  --main-width: 90%;
+  --main-max-width: 1400px;
 
   --color-border: var(--light-gray);
   --border-radius: 10px;
   --paragraph-color: #4a4a4a;
 
   --global-padding: 10px;
-  --global-font-size: 16px;
+  --global-font-size: 12px;
+  --colums-size: 90px;
 }

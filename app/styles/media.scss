@@ -1,17 +1,19 @@
 @media only screen and (min-width: 720px) {
   :root {
-    --num-cards: 2;
+    --global-font-size: 14px;
+    --colums-size: 110px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   :root {
-    --num-cards: 3;
+    --colums-size: 120px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   :root {
-    --num-cards: 4;
+    --global-font-size: 16px;
+    --colums-size: calc(100% / 12);
   }
 }
