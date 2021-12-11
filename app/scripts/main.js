@@ -1,5 +1,12 @@
 import "../styles/index.scss";
-import { test } from "./helpers";
+import { getJson } from "./services";
 
-console.log("loading mainjs");
-test();
+const selectorItems = document.querySelector("main .items");
+
+const renderCars = async () => {
+  const items = await getJson("http://www.cartrawler.com/ctabe/cars.json");
+  console.log("items", items);
+  console.log("selectorItems", selectorItems);
+};
+
+renderCars();

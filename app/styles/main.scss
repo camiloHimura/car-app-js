@@ -1,0 +1,33 @@
+main {
+  margin: auto;
+  max-width: var(--main-size);
+}
+
+h1 {
+  text-align: center;
+}
+
+.list {
+  padding: var(--global-padding);
+  border-radius: var(--border-radius);
+  margin-top: calc(var(--global-padding) * 2);
+}
+
+.headers,
+.item {
+  display: grid;
+  text-align: center;
+  grid-template-rows: auto;
+  padding: calc(var(--global-padding) * 2) var(--global-padding);
+  grid-template-columns: repeat(12, calc(100% / 12));
+}
+
+.headers {
+  font-weight: bold;
+  margin-bottom: var(--global-padding);
+  box-shadow: 0px 5px 10px var(--light-gray);
+}
+
+.items {
+  box-shadow: 0px 5px 10px var(--light-gray);
+}

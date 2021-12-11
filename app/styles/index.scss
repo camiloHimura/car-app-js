@@ -1,3 +1,8 @@
+@import url("./vars.scss");
+@import url("./loader.scss");
+@import url("./main.scss");
+@import url("./media.scss");
+
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #e6e6e6;
+  background: var(--white);
+  color: var(--paragraph-color);
+  font-size: var(--global-font-size);
 }
 
 textarea {
@@ -21,4 +28,52 @@ h3,
 h4,
 p {
   margin: 0px;
+}
+
+.MyFavorites {
+  display: flex;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.--flex {
+  display: flex;
+}
+.--wrap {
+  flex-wrap: wrap;
+}
+.--flexBetween {
+  justify-content: space-between;
+}
+.--flexEnd {
+  justify-content: flex-end;
+}
+.--flexColumn {
+  flex-direction: column;
+}
+.--spaceEvenly {
+  justify-content: space-evenly;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.--ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: var(--blue);
+  text-align: center;
+  text-transform: capitalize;
 }
