@@ -33,12 +33,12 @@ h1 {
   font-weight: bold;
   scroll-behavior: smooth;
   margin-bottom: var(--global-padding);
-  box-shadow: 0px 5px 10px var(--light-gray);
+  box-shadow: var(--global-box-shadow);
 }
 
 .items {
   overflow: auto;
-  box-shadow: 0px 5px 10px var(--light-gray);
+  box-shadow: var(--global-box-shadow);
 }
 
 .items:not(:empty) .loading {

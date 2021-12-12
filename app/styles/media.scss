@@ -2,18 +2,21 @@
   :root {
     --global-font-size: 14px;
     --colums-size: 110px;
+    --global-modal-width: 70%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   :root {
     --colums-size: 120px;
+    --global-modal-width: 60%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   :root {
     --global-font-size: 16px;
+    --global-modal-width: 50%;
     --colums-size: calc(100% / var(--colums-number));
   }
 }

@@ -30,7 +30,7 @@ export const formatPickupReturnInformation = (data = {}) => ({
   returnLocation: get(data, "PickUpLocation.@Name", infoUnavailable),
 });
 // prettier-ignore
-const runWhenValidNodes =
+export const runWhenValidNodes =
 (callback) =>
 (...nodes) =>
 nodes.every(

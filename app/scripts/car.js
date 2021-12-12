@@ -28,7 +28,7 @@ export const formatCars = (vendorName, list = []) =>
 const getCarInfoDivs = (data) => `
         <span>${data.vendorName}</span>
         <span>${data.price}</span>
-        <img alt="${data.model}" src="${data.pictureURL}" />
+        <img class="pointer" alt="${data.model}" src="${data.pictureURL}" />
         <span>${data.model}</span>
         <span>${data.code}</span>
         <span>${data.codeContext}</span>
@@ -42,7 +42,7 @@ const getCarInfoDivs = (data) => `
 
 export const getAvailableFormattedCars = (list = []) =>
   getVendors(list)
-    .map(({ VehAvails, Vendor }) => {
+    .map(({ VehAvails, Vendor }, index) => {
       const vendorName = Vendor["@Name"];
       const availableCars = getAvailableCars(VehAvails);
       return formatCars(vendorName, availableCars);
@@ -56,6 +56,8 @@ export const buildItemElements = (list = []) => {
     const container = document.createElement("div");
     container.innerHTML = getCarInfoDivs(data);
     container.classList.add("item");
+    container.dataset.model = data.model;
+    container.dataset.vendorName = data.vendorName;
     fragment.appendChild(container);
   });
 

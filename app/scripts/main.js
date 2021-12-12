@@ -11,9 +11,18 @@ import {
   getAvailableFormattedCars,
   getFormatedPickupReturnInformation,
 } from "./car";
+import {
+  getImgParent,
+  getVendorAndModel,
+  findCarByModelAndVendor,
+  buildBodyStructure,
+} from "./dialog";
 
+const selectorDialog = document.querySelector("main #dialog");
+const selectorDialogClose = document.querySelector("main .close");
+const selectorDialogContent = selectorDialog.querySelector(".content");
 const selectorItems = document.querySelector("main .items");
-const selectorHeaders = document.querySelector("main .headers");
+const selectorHeaders = selectorItems.querySelector("main .headers");
 const selectorOrder = document.querySelector("main .orderSelector");
 const selectorPickupInfo = document.querySelector("main .pickupInformation");
 const selectorReturnInfo = document.querySelector("main .returnInformation");
@@ -41,8 +50,18 @@ const addListeners = (formattedCars = []) => {
     renderCars(sortAndBuiltItemCars(formattedCars));
   };
 
+  const openModalAndRenderCarInfo = getImgParent((element) => {
+    const { vendorName, model } = getVendorAndModel(element);
+    const car = findCarByModelAndVendor(formattedCars, vendorName, model);
+    removeAllChildNodes(selectorDialogContent);
+    selectorDialogContent.innerHTML = buildBodyStructure(car);
+    selectorDialog.showModal();
+  });
+
   selectorItems.addEventListener("scroll", updateLeftScroll);
   selectorOrder.addEventListener("change", removeAllAndAddsortedItems);
+  selectorItems.addEventListener("click", openModalAndRenderCarInfo);
+  selectorDialogClose.addEventListener("click", () => selectorDialog.close());
 };
 
 const init = async () => {

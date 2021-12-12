@@ -1,0 +1,37 @@
+dialog {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  overflow: auto;
+  z-index: 10000;
+  position: fixed;
+  background-color: var(--light-gray-4);
+}
+
+dialog[open] {
+  display: flex;
+}
+
+dialog .body {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  background: var(--white);
+  padding: var(--global-padding);
+  max-width: var(--global-modal-width);
+  box-shadow: var(--global-box-shadow);
+}
+
+dialog .content > div:not(:last-child) {
+  margin-bottom: var(--global-padding);
+}
+
+dialog .close {
+  top: -44px;
+  right: 0px;
+  font-weight: bold;
+  position: absolute;
+  padding: var(--global-padding);
+}

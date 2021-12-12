@@ -17,8 +17,10 @@
   --border-radius: 10px;
   --paragraph-color: #4a4a4a;
 
-  --global-padding: 10px;
-  --global-font-size: 12px;
   --colums-size: 90px;
   --colums-number: 13;
+  --global-padding: 10px;
+  --global-font-size: 12px;
+  --global-box-shadow: 0px 5px 10px var(--light-gray);
+  --global-modal-width: calc(100% - (var(--global-padding) * 2));
 }

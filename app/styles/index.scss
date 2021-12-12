@@ -1,6 +1,7 @@
 @import url("./vars.scss");
 @import url("./loader.scss");
 @import url("./main.scss");
+@import url("./dialog.scss");
 @import url("./media.scss");
 
 body {
@@ -51,6 +52,11 @@ img {
 }
 .--spaceEvenly {
   justify-content: space-evenly;
+}
+
+.--centerChildren {
+  align-items: center;
+  justify-content: center;
 }
 
 button {
