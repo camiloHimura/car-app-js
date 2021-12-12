@@ -13,16 +13,29 @@
     <main role="main">
       <h1>Car App</h1>
 
-      <h4 class="pickupInformation"></h4>
-      <h4 class="returnInformation"></h4>
+      <section class="options --flex --flexBetween">
+        <div>
+          <h4 class="pickupInformation"></h4>
+          <h4 class="returnInformation"></h4>
+        </div>
+        <div>
+          <select class="orderSelector">
+            <option selected data-value="price">Price</option>
+            <option data-value="doorCount">Door Count</option>
+            <option data-value="baggageQuantity">Baggage Quantity</option>
+            <option data-value="passengerQuantity">Passenger Quantity</option>
+          </select>
+        </div>
+      </section>
       <section class="list">
         <div class="headers">
           <div title="Vendor">Vendor</div>
+          <div title="Price">Price</div>
           <div title="Picture">Picture</div>
           <div title="Model">Model</div>
           <div title="Code">Code</div>
           <div title="Code Text">Code Text</div>
-          <div title="AirCondition">AirCondition</div>
+          <div title="AirCondition">Air Conditioner</div>
           <div title="Baggage Quantity">Baggage Quantity</div>
           <div title="Door Count">Door Count</div>
           <div title="Drive Type">Drive Type</div>

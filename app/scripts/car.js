@@ -18,25 +18,27 @@ export const formatCars = (vendorName, list = []) =>
     pictureURL: get(data, "Vehicle.PictureURL", infoUnavailable),
     codeContext: get(data, "Vehicle.@CodeContext", infoUnavailable),
     model: get(data, "Vehicle.VehMakeModel.@Name", infoUnavailable),
+    price: Number(get(data, "TotalCharge.@RateTotalAmount", infoUnavailable)),
     airConditionInd: get(data, "Vehicle.@AirConditionInd", infoUnavailable),
     baggageQuantity: get(data, "Vehicle.@BaggageQuantity", infoUnavailable),
-    passengerQuantity: get(data, "Vehicle.@PassengerQuantity", infoUnavailable),
     transmissionType: get(data, "Vehicle.@TransmissionType", infoUnavailable),
+    passengerQuantity: get(data, "Vehicle.@PassengerQuantity", infoUnavailable),
   }));
 
 const getCarInfoDivs = (data) => `
-        <div>${data.vendorName}</div>
-        <div><img src="${data.pictureURL}" /></div>
-        <div>${data.model}</div>
-        <div>${data.code}</div>
-        <div>${data.codeContext}</div>
-        <div>${data.airConditionInd === "true" ? "Yes" : "No"}</div>
-        <div>${data.baggageQuantity}</div>
-        <div>${data.doorCount}</div>
-        <div>${data.driveType}</div>
-        <div>${data.fuelType}</div>
-        <div>${data.passengerQuantity}</div>
-        <div>${data.transmissionType}</div>`;
+        <span>${data.vendorName}</span>
+        <span>${data.price}</span>
+        <img alt="${data.model}" src="${data.pictureURL}" />
+        <span>${data.model}</span>
+        <span>${data.code}</span>
+        <span>${data.codeContext}</span>
+        <span>${data.airConditionInd === "true" ? "Yes" : "No"}</span>
+        <span>${data.baggageQuantity}</span>
+        <span>${data.doorCount}</span>
+        <span>${data.driveType}</span>
+        <span>${data.fuelType}</span>
+        <span>${data.passengerQuantity}</span>
+        <span>${data.transmissionType}</span>`;
 
 export const getAvailableFormattedCars = (list = []) =>
   getVendors(list)

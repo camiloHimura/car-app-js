@@ -1,5 +1,6 @@
-import isNull from "lodash/isNull";
 import get from "lodash/get";
+import isNull from "lodash/isNull";
+import sortBy from "lodash/sortBy";
 import isElement from "lodash/isElement";
 
 export const getVendors = (list = []) =>
@@ -28,24 +29,38 @@ export const formatPickupReturnInformation = (data = {}) => ({
   pickUpLocation: get(data, "PickUpLocation.@Name", infoUnavailable),
   returnLocation: get(data, "PickUpLocation.@Name", infoUnavailable),
 });
+// prettier-ignore
+const runWhenValidNodes =
+(callback) =>
+(...nodes) =>
+nodes.every(
+  (node) => isElement(node) || node.nodeName === "#document-fragment"
+  ) && callback(...nodes);
 
-export const addNode = (parent, element) => {
-  if (
-    (!isElement(element) && element.nodeName !== "#document-fragment") ||
-    !isElement(parent)
-  ) {
-    console.error("The parent or new element are not a valid dom node");
-    return;
-  }
+// prettier-ignore
+const runWhenFirstValidNode =
+  (callback) =>
+    (...elements) => {
+      const [node] = elements;
+      return runWhenValidNodes(() => callback(...elements))(node);
+    };
 
+export const addNode = runWhenValidNodes((parent, element) => {
   parent.appendChild(element);
-};
+});
 
-export const updateNodeText = (element, text = "") => {
-  if (!isElement(element)) {
-    console.error("The parent or new element are not a valid dom node");
-    return;
+export const removeAllChildNodes = runWhenValidNodes((parent) => {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
   }
+});
 
+export const updateNodeText = runWhenFirstValidNode((element, text = "") => {
   element.textContent = text;
-};
+});
+
+export const sortListBy = runWhenFirstValidNode((orderSelector, list = []) => {
+  const property = get(orderSelector, "selectedOptions.[0].dataset.value", "");
+
+  return sortBy(list, [property]);
+});

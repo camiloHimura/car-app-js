@@ -8,6 +8,10 @@ h1 {
   text-align: center;
 }
 
+.options {
+  margin-top: calc(var(--global-padding) * 2);
+}
+
 .list {
   border-radius: var(--border-radius);
   margin-top: calc(var(--global-padding) * 2);
@@ -20,7 +24,7 @@ h1 {
   align-items: center;
   grid-template-rows: auto;
   padding: calc(var(--global-padding) * 2) var(--global-padding);
-  grid-template-columns: repeat(12, var(--colums-size));
+  grid-template-columns: repeat(var(--colums-number), var(--colums-size));
 }
 
 .headers {
